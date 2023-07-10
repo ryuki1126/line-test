@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@line/liff": "^2.22.2",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
   },
@@ -39,5 +40,11 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "vue": {
+    "devServer": {
+      "disableHostCheck": true
+  }
+}
+
 }
