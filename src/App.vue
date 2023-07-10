@@ -1,17 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <div>
+    <p v-if="isLoggedIn">ログイン中</p>
+    <p v-if="!isLoggedIn">ログインできていません</p>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import liff from "@line/liff";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return {
+      isLoggedIn: false,
+    };
+  },
+  created() {
+    console.log(liff.getOS());
+    console.log(liff.isLoggedIn());
+    this.isLoggedIn = liff.isLoggedIn();
+  },
+};
 </script>
 
 <style>
