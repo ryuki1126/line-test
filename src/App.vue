@@ -3,8 +3,8 @@
   <p>liff認証テストアプリ</p>
   <p v-if="isLogin">ログイン中</p>
   <p v-if="!isLogin">ログインしていません</p>
-  <p>{{ idToken }}</p>
-  <p>{{ accessToken }}</p>
+  <p>IDトークン : {{ idToken }}</p>
+  <p>アクセストークン : {{ accessToken }}</p>
 </template>
 
 <script>
