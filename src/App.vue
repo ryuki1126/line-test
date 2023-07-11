@@ -1,15 +1,23 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import liff from "@line/liff";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld,
+  created() {
+    liff
+      .init({ liffId: "2000094702-vgO5A1wk" })
+      .then(() => {
+        console.log(liff.isLoggedIn());
+        console.log(liff.getIDToken());
+        console.log(liff.getAccessToken());
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
