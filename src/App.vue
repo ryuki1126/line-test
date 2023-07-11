@@ -23,6 +23,9 @@ export default {
     liff
       .init({ liffId: "2000094702-vgO5A1wk" })
       .then(() => {
+        if (!liff.isLoggedIn()) {
+          liff.login();
+        }
         this.isLogin = liff.isLoggedIn();
         this.idToken = liff.getIDToken();
         this.accessToken = liff.getAccessToken();
