@@ -7,6 +7,7 @@
 
 <script>
 import liff from "@line/liff";
+import LIFFInspectorPlugin from "@line/liff-inspector";
 
 export default {
   name: "App",
@@ -16,6 +17,7 @@ export default {
     };
   },
   created() {
+    liff.use(new LIFFInspectorPlugin());
     liff
       .init({ liffId: "2000094702-vgO5A1wk" })
       .then(() => {
