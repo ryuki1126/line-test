@@ -9,6 +9,7 @@
 
 <script>
 import liff from "@line/liff";
+import { setAuthToken } from "@/auth.js";
 
 export default {
   name: "App",
@@ -26,9 +27,12 @@ export default {
         if (!liff.isLoggedIn()) {
           liff.login();
         }
+        const idToken = liff.getIDToken();
+        const accessToken = liff.getAccessToken();
         this.isLogin = liff.isLoggedIn();
-        this.idToken = liff.getIDToken();
-        this.accessToken = liff.getAccessToken();
+        this.idToken = idToken;
+        this.accessToken = accessToken;
+        setAuthToken(idToken, accessToken);
         console.log(liff.isLoggedIn());
         console.log(liff.getIDToken());
         console.log(liff.getAccessToken());
