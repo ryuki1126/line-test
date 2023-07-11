@@ -1,5 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
+  <p>liff認証テストアプリ</p>
   <p v-if="isLogin">ログイン中</p>
   <p v-if="!isLogin">ログインしていません</p>
 </template>
