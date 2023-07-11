@@ -3,25 +3,29 @@
   <p>liff認証テストアプリ</p>
   <p v-if="isLogin">ログイン中</p>
   <p v-if="!isLogin">ログインしていません</p>
+  <p>{{ idToken }}</p>
+  <p>{{ accessToken }}</p>
 </template>
 
 <script>
 import liff from "@line/liff";
-import LIFFInspectorPlugin from "@line/liff-inspector";
 
 export default {
   name: "App",
   data() {
     return {
       isLogin: false,
+      idToken: null,
+      accessToken: null,
     };
   },
   created() {
-    liff.use(new LIFFInspectorPlugin());
     liff
       .init({ liffId: "2000094702-vgO5A1wk" })
       .then(() => {
         this.isLogin = liff.isLoggedIn();
+        this.idToken = liff.getIDToken();
+        this.accessToken = liff.getAccessToken();
         console.log(liff.isLoggedIn());
         console.log(liff.getIDToken());
         console.log(liff.getAccessToken());
